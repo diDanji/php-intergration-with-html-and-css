@@ -70,8 +70,6 @@
         border-radius: 6px;
     }
 
-    
-
     /* table section */
     .table_section{
         height: 500px;
@@ -105,7 +103,7 @@
         justify-content: flex-end;
         width: 100%;
         padding: 10px 20px;
-        /* background: #8493a5; */
+        
     }
 
     .pagination div{
@@ -122,9 +120,8 @@
         box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75); 
         margin: 0 5px;
         cursor: pointer;
-
-
     }
+
     tr:hover td{
         color: #0298cf;
         cursor: pointer;
@@ -148,8 +145,18 @@
         box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     }
 </style>
+
 </head>
 <body>
+
+<?php
+include("connection.php");
+include("edit.php");
+include("delete.php");
+include("add.php");
+?>
+
+
     <div class="table">
         <div class="table_header">
             <p>Department Details</p>
@@ -170,114 +177,36 @@
                 <tbody>
                    
                 
-                <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
+                <?php
+                
+                $sql = "SELECT * FROM department";
+                $results = $conn->Query($sql);
 
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
+                        if($results->num_rows > 0) {
+                                 while($row = $results->fetch_assoc()) {
+                                    echo "<tr><td>";
 
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
+                                    echo isset($row['HOD'])?
+                                         $row['HOD']: 'N/A';
 
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
+                                            echo "</td><td>";
+                                    
+                                    echo $row['Dept_no'];        
 
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
+                                         
+                                     echo "</td><td><a href='edit.php?id=" . $row['Dept_no'] ."' <button><i class='fa-solid fa-pen-to-square'></i><a href='delete.php?id=" .
+                                      $row['Dept_no'] ."' onclick='return confirm(\"Are you sure want to delete this field?\");'
+                                     <button><i class='fa-solid fa-trash'></i></button></a><td></tr>";
+                                     
+                                   
+                                 }
+                        }else{
 
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>muwa</td>
-                        <td>c001</td>
-                        <td>
-                            <button><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-
+                         echo "no results found";
+                        
+                        }
+                        
+                ?>
                     
                 </tbody>
             </table>
@@ -292,5 +221,7 @@
         </div>
         
     </div>
+
+
 </body>
 </html>

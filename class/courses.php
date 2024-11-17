@@ -7,15 +7,6 @@
  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- <nav>
-        <ul>
-            <li><a href="#">student</a></li>
-            <li><a href="#">Department</a></li>
-            <li><a href="#">Course </a></li>
-            <li><a href="#">Marks</a></li>
-            
-        </ul>
-    </nav> -->
     <section class="container"> 
    
     <header>Course Entry</header>
@@ -29,19 +20,7 @@
             <label >Course code</label>
             <input type="text" name="Course_code" placeholder="Enter code" required />
 </div>
-<!-- <<div class="column">
-<div class="input-box">
-            <label >Access No</label>
-            <input type="text" placeholder="Enter Access No" required />
 
-        </div>
-        <div class="input-box">
-            <label >Email</label>
-            <input type="text" placeholder="Enter email address" required />
---
-        </div>
-
-</div> -->
 
     <div class="column">
         <div class="select-box">

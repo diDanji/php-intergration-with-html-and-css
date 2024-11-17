@@ -1,4 +1,4 @@
-<?php
+ <?php
 //connection details
 $servername = "localhost";
 $username = "root";
@@ -37,26 +37,22 @@ $Dept_no = $_POST['Dept_no'];
 // $Semester = $POST["Semester"];
 
 // //marks form
-// $mark_id = $_POST["mark_id"];
-// $marks = $_POST["marks"];
-// $comment = $_POST["comment"];
-// $grade = $_POST["grade"];
-// $Course_code = $_POST["Course_code"];
+// $mark_id = $_POST['mark_id'];
+// $marks = $_POST['marks'];
+// $comment = $_POST['comment'];
+// $grade = $_POST['grade'];
+// $Course_code = $_POST['Course_code'];
 
 
         // $sql = "INSERT INTO student( first_name, last_name, reg_no, access_no, email, dept_no, gender )
         //             VALUES ('$first_name', '$last_name', '$reg_no', '$access_no', '$email', '$dept_no', '$gender' )";
 
-      
+                                                                                
       //records data successfully
       $sql = "INSERT INTO department( HOD, Dept_no )
         VALUES ('$HOD', '$Dept_no')";
 
-                if($conn -> query($sql) === TRUE) {
-                    echo "Data saved successfully";
-                } else{
-                    echo "data saved failed";
-                }
+                
 
         // leaves out some data (year and semester)
         // $sql = "INSERT INTO course( Course_name, Course_code, Year, semester)
@@ -67,7 +63,11 @@ $Dept_no = $_POST['Dept_no'];
         // VALUES ('$mark_id', '$marks', '$comment', '$grade', '$Course_code' )";
 
 
-                
+                if($conn -> query($sql) === TRUE) {
+                    echo "Data saved successfully";
+                } else{
+                    echo "data saved failed";
+                }
 
 
 
